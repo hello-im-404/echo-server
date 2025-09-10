@@ -5,8 +5,16 @@
 ```bash
 git clone https://github.com/hello-im-404/echo-server
 cd echo-server
-chmod 700 run
-./run
+make
 ```
+# How to run?
+## Server: 
+```bash
+./run-server
+```
+## Client: 
+```bash
+./run-client
+```
+## so now u can send a message!
 
-# client code s00n. 

@@ -1,8 +1,8 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 -pedantic
-LDFLAGS = 
+CFLAGS = -Wall -Wextra -std=c99 -pedantic -g
+LDFLAGS =
 
-SRC_DIR = .
+SRC_DIR = src
 BUILD_DIR = build
 BIN_DIR = $(BUILD_DIR)/bin
 OBJ_DIR = $(BUILD_DIR)/obj
@@ -34,16 +34,17 @@ clean:
 
 re: clean all
 
-tree:
-	@echo "Структура проекта:"
-	@tree -a || ls -la
+help:
+	@echo "Доступные команды:"
+	@echo "  make all      - собрать все цели"
+	@echo "  make server   - собрать только сервер"
+	@echo "  make client   - собрать только клиент"
+	@echo "  make clean    - очистить проект"
+	@echo "  make re       - пересобрать проект"
+	@echo "  make tree     - показать структуру проекта"
+	@echo "  make run-server - запустить сервер"
+	@echo "  make run-client - запустить клиента"
+	@echo "  make run-both  - запустить сервер и клиент"
+	@echo "  make debug    - отладочная информация"
+	@echo "  make help     - эта справка"
 
-run-server: $(SERVER_EXE)
-	@echo "Запуск сервера..."
-	@$(SERVER_EXE)
-
-run-client: $(CLIENT_EXE)
-	@echo "Запуск клиента..."
-	@$(CLIENT_EXE)
-
-.PHONY: all clean re tree run-server run-client
